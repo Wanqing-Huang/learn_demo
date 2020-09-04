@@ -1,0 +1,7 @@
+<resources>
+
+    <declare-styleable name="PollingAnswerView">
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+
+</resources>

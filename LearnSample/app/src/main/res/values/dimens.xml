@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="feeds_polling_answer_big_text_size">28sp</dimen>
+    <dimen name="feeds_polling_answer_small_text_size">16sp</dimen>
+    <dimen name="feeds_polling_double_line_text_size">18sp</dimen>
+    <dimen name="feeds_polling_double_line_small_text_size">10sp</dimen>
+    <dimen name="feeds_polling_ratio_text_size">20sp</dimen>
+    <dimen name="feeds_polling_width">252dp</dimen>
+    <dimen name="feeds_polling_height">64dp</dimen>
+    <dimen name="feeds_polling_answer_">16sp</dimen>
+    <dimen name="feeds_polling_answer_horizontal_padding">4dp</dimen>
+
+
+
+    <dimen name="final_width">80dp</dimen>
+
+</resources>
