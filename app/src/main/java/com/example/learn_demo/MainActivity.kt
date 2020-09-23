@@ -6,9 +6,11 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learn_demo.aop.AOPActivity
+import com.example.learn_demo.calendar.CalendarViewActivity
 import com.example.learn_demo.calendar.CurrentDayDecorator
 import com.example.learn_demo.calendar.SimpleCalendarActivity
 import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.calendarView
 import kotlinx.android.synthetic.main.activity_simple_calendar.*
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             calendar.get(Calendar.MONTH) + 1,
             calendar.get(Calendar.DAY_OF_MONTH)
         )
+        calendarView.titleAnimationOrientation = MaterialCalendarView.HORIZONTAL
         calendarView.addDecorator(
             CurrentDayDecorator(
                 this,
@@ -41,7 +44,6 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         )
-//        calendarView.selectRange(CalendarDay.from(2020,3,20), CalendarDay.from(2020,9,23))
 
         btn_aop_test.setOnClickListener {
 //            startActivity(Intent(this, AOPActivity::class.java))
@@ -62,5 +64,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        btn_date_picker_test2.setOnClickListener {
+            startActivity(Intent(this, CalendarViewActivity::class.java))
+        }
     }
 }
