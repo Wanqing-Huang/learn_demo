@@ -13,4 +13,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AOP测试" />
+
+    <Button
+        android:id="@+id/btn_date_picker_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="日期选择器测试" />
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="#1370F2"
+        />
+
+
 </LinearLayout>

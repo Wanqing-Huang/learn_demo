@@ -56,4 +56,8 @@ dependencies {
     //butterknife
     implementation 'com.jakewharton:butterknife:10.2.0'
     kapt 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    implementation 'com.haibin:calendarview:3.6.9'
+
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
 }
