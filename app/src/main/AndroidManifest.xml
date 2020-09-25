@@ -17,8 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".aop.AOPActivity" />
-        <activity android:name=".calendar.SimpleCalendarActivity" />
-        <activity android:name=".calendar.CalendarViewActivity" />
+        <activity android:name=".calendarview.CalendarViewActivity" />
     </application>
 
 </manifest>

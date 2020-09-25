@@ -1,4 +1,4 @@
-package com.example.learn_demo.calendar
+package com.example.learn_demo.calendarview
 
 import android.app.Activity
 import android.graphics.Canvas
@@ -11,6 +11,7 @@ import com.example.learn_demo.Utils.dip2px
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
+import kotlin.math.min
 
 
 /**
@@ -49,10 +50,11 @@ class CurrentDayDecorator(val context: Activity, currentDay: CalendarDay) : DayV
             //绘制圆环
             paint.color = Color.parseColor("#1370F2")
             paint.strokeWidth = ringWidth.toFloat()
+            val radius = min((right - left), (bottom - top)).toFloat()
             c.drawCircle(
                 (right - left) / 2F,
                 (bottom - top) / 2F,
-                (right - left) / 2F - Utils.dip2px(context, 2F),
+                (right - left) / 2F - dip2px(context, 2F),
                 paint
             )
         }
