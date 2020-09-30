@@ -2,7 +2,10 @@ package com.example.learn_demo.aop
 
 import android.util.Log
 import org.aspectj.lang.ProceedingJoinPoint
-import org.aspectj.lang.annotation.*
+import org.aspectj.lang.annotation.Around
+import org.aspectj.lang.annotation.Aspect
+import org.aspectj.lang.annotation.Pointcut
+import org.aspectj.lang.reflect.MethodSignature
 
 /**
  * @author vianhuang
@@ -21,20 +24,34 @@ import org.aspectj.lang.annotation.*
 @Aspect
 class AspectJTest {
 
-    @Pointcut("execution( * com.example.learn_demo.aop.AOPActivity.onCreate(..))")
-    fun onActivityCreated() {
-
+    @Pointcut("execution(@com.example.learn_demo.aop.BehaviorTrace**(..))")
+    fun pointCut() {
     }
 
+   
+    @Around("pointCut()")
+    fun aroundTest(joinPoint: ProceedingJoinPoint) {
+        Log.i("aop", "weaveJoinPoint")
+        //拿到方法的签名
+        val methodSignature = joinPoint.signature as MethodSignature
+        //类名
+        val className = methodSignature.declaringType.simpleName
+        //方法名
+        val methodName = methodSignature.name
+        //功能名
+        val behaviorTrace = methodSignature.method.getAnnotation(BehaviorTrace::class.java)
+        val `fun`: String = behaviorTrace.value
 
-    @Around("onActivityCreated()")
-    fun aroundActivityCreated(joinPoint: ProceedingJoinPoint) {
-        try {
-            Log.i("aop", "before activity created.")
-            joinPoint.proceed()
-            Log.i("aop", "after activity created.")
-        }catch (throwable: Throwable){
-            throwable.printStackTrace()
-        }
+        //方法执行前
+        val begin = System.currentTimeMillis()
+        //执行拦截方法
+        val result = joinPoint.proceed()
+        //方法执行后
+        val duration = System.currentTimeMillis() - begin
+        
+        Log.i(
+            "aop",
+            String.format("功能：%s，%s的%s方法执行，耗时：%d ms", `fun`, className, methodName, duration)
+        )
     }
 }
