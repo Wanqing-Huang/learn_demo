@@ -20,18 +20,16 @@ import org.aspectj.lang.reflect.MethodSignature
  * @AfterThrowing(切点表达式)：异常通知，切点抛出异常时执行
  */
 
-
 @Aspect
 class AspectJTest {
 
-    @Pointcut("execution(@com.example.learn_demo.aop.BehaviorTrace**(..))")
+    @Pointcut("execution( * costFunc(..))")
     fun pointCut() {
+
     }
 
-   
     @Around("pointCut()")
     fun aroundTest(joinPoint: ProceedingJoinPoint) {
-        Log.i("aop", "weaveJoinPoint")
         //拿到方法的签名
         val methodSignature = joinPoint.signature as MethodSignature
         //类名
@@ -48,7 +46,7 @@ class AspectJTest {
         val result = joinPoint.proceed()
         //方法执行后
         val duration = System.currentTimeMillis() - begin
-        
+
         Log.i(
             "aop",
             String.format("功能：%s，%s的%s方法执行，耗时：%d ms", `fun`, className, methodName, duration)
