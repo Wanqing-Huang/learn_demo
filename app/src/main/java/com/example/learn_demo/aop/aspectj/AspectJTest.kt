@@ -1,4 +1,4 @@
-package com.example.learn_demo.aop
+package com.example.learn_demo.aop.aspectj
 
 import android.util.Log
 import org.aspectj.lang.ProceedingJoinPoint
@@ -23,7 +23,7 @@ import org.aspectj.lang.reflect.MethodSignature
 @Aspect
 class AspectJTest {
 
-    @Pointcut("execution( * costFunc(..))")
+    @Pointcut("execution( * aspectTest(..))")
     fun pointCut() {
 
     }
