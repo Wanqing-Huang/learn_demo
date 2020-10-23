@@ -1,3 +1,2 @@
-include ':asm_demo'
 include ':app'
 rootProject.name = "learn_demo"
