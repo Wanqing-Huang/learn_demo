@@ -17,6 +17,8 @@ import org.objectweb.asm.ClassWriter
 
 class CustomTransform extends Transform {
 
+    private LogUtil logger = new LogUtil()
+
     @Override
     String getName() {
         return "CustomTransform"
@@ -63,12 +65,16 @@ class CustomTransform extends Transform {
         //获取到输出目录，最后将修改的文件复制到输出目录，这一步必须做不然编译会报错
         def outputProvider = transformInvocation.getOutputProvider()
 
+        logger.warn('CustomPlugin========>transform. ' + inputs.size())
+
         for (TransformInput input : inputs) {
             for (JarInput jarInput : input.getJarInputs()) {
+                logger.warn('CustomPlugin========>handleJarInputs.')
                 handleJarInputs(jarInput, outputProvider)
             }
 
             for (DirectoryInput directoryInput : input.getDirectoryInputs()) {
+                logger.warn('CustomPlugin========>handleDirectoryInput.')
                 handleDirectoryInput(directoryInput, outputProvider)
             }
         }
@@ -95,8 +101,9 @@ class CustomTransform extends Transform {
         //列出目录所有文件（包含子文件夹，子文件夹内文件）
         directoryInput.file.eachFileRecurse { File file ->
             def fileName = file.name
+            logger.warn('handle file class : ' + fileName)
             if (checkClassFile(fileName)) {
-                LogUtil.info('find activity class : ' + fileName)
+                logger.warn('find activity class : ' + fileName)
                 //对class文件进行读取与解析
                 ClassReader classReader = new ClassReader(file.bytes)
                 //对class文件的写入
