@@ -7,6 +7,7 @@ import org.objectweb.asm.Opcodes;
 
 public class LifecycleClassVisitor extends ClassVisitor {
     private String className;
+    private LogUtil logger = new LogUtil();
 
     public LifecycleClassVisitor(ClassVisitor cv) {
         /**
@@ -19,10 +20,8 @@ public class LifecycleClassVisitor extends ClassVisitor {
     @Override
     public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
         super.visit(version, access, name, signature, superName, interfaces);
-        System.out.println("------ClassVisitor visit start-------");
-        System.out.println(" visit className-------" + name);
-        System.out.println(" visit superName-------" + superName);
         this.className = name;
+        logger.warn("[CustomPlugin]start to visit class: " + className);
     }
 
     @Override
@@ -35,7 +34,7 @@ public class LifecycleClassVisitor extends ClassVisitor {
         MethodVisitor mv = cv.visitMethod(access, name, desc, signature, exceptions);
 
         if (name.startsWith("on")) {
-            LogUtil.info("find lifecycle method. methodName = " + name);
+            logger.warn("[CustomPlugin]find lifecycle method. methodName = " + name);
 
             //处理onXX()方法
             return new LifecycleMethodVisitor(mv, className, name);
@@ -46,7 +45,7 @@ public class LifecycleClassVisitor extends ClassVisitor {
     @Override
     public void visitEnd() {
         super.visitEnd();
-        System.out.println("------ClassVisitor visit end-------");
+        logger.warn("[CustomPlugin]end visit class: " + className);
     }
 
 

@@ -69,16 +69,14 @@ class CustomTransform extends Transform {
         //获取到输出目录，最后将修改的文件复制到输出目录，这一步必须做不然编译会报错
         def outputProvider = transformInvocation.getOutputProvider()
 
-        logger.warn('CustomPlugin========>transform. ' + inputs.size())
+        logger.warn('[CustomPlugin] start to transform... ' + inputs.size())
 
         for (TransformInput input : inputs) {
             for (JarInput jarInput : input.getJarInputs()) {
-                logger.warn('CustomPlugin========>handleJarInputs.')
                 handleJarInputs(jarInput, outputProvider)
             }
 
             for (DirectoryInput directoryInput : input.getDirectoryInputs()) {
-                logger.warn('CustomPlugin========>handleDirectoryInput.')
                 handleDirectoryInput(directoryInput, outputProvider)
             }
         }
@@ -105,9 +103,8 @@ class CustomTransform extends Transform {
         //列出目录所有文件（包含子文件夹，子文件夹内文件）
         directoryInput.file.eachFileRecurse { File file ->
             def fileName = file.name
-            logger.warn('handle file class : ' + fileName)
             if (checkClassFile(fileName)) {
-                logger.warn('find activity class : ' + fileName)
+                logger.warn('[CustomPlugin]find activity class : ' + fileName)
                 //对class文件进行读取与解析
                 ClassReader classReader = new ClassReader(file.bytes)
                 //对class文件的写入
@@ -133,7 +130,7 @@ class CustomTransform extends Transform {
                 directoryInput.getName(),
                 directoryInput.getContentTypes(),
                 directoryInput.getScopes(),
-                Format.DIRECTORY);
+                Format.DIRECTORY)
         //将修改过的字节码copy到dest，就可以实现编译期间干预字节码的目的了
         FileUtils.copyDirectory(directoryInput.getFile(), dest)
     }
