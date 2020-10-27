@@ -50,12 +50,16 @@ class CustomTransform extends Transform {
 
     /**
      * 指明当前Transform是否支持增量编译
+     * 不支持增量编译的话，要rebuild才能重新调用到transform
      */
     @Override
     boolean isIncremental() {
         return false
     }
 
+    /**
+     * 如果运用了多个plugin，每个插件的产物都是jar包，后面的插件的输入都是jar包，必须对jar包进行处理。
+     */
     @Override
     void transform(TransformInvocation transformInvocation) throws TransformException, InterruptedException, IOException {
         super.transform(transformInvocation)
