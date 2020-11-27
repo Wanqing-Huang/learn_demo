@@ -5,7 +5,7 @@ ext.versions = [
         'buildTools': "29.0.2",
         'compileSdk': 29,
         'minSdk'    : 16,
-        'targetSdk' : 28
+        'targetSdk' : 29
 ]
 
 ext.versions += [
