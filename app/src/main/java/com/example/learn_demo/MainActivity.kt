@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learn_demo.aop.AOPActivity
 import com.example.learn_demo.calendarview.CalendarViewActivity
+import com.example.learn_demo.tasktest.TaskTestActivityA
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.FileOutputStream
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = "MainActivity"
         setContentView(R.layout.activity_main)
 
         btn_aop_test.setOnClickListener {
@@ -41,6 +43,10 @@ class MainActivity : AppCompatActivity() {
                 it.flush()
                 it.close()
             }
+        }
+
+        btn_activity_task_test.setOnClickListener {
+            startActivity(Intent(this, TaskTestActivityA::class.java))
         }
     }
 }
