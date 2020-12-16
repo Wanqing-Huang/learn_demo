@@ -27,8 +27,7 @@
         <activity android:name=".calendarview.CalendarViewActivity" />
 
         <activity android:name=".tasktest.TaskTestActivityA"/>
-        <activity android:name=".tasktest.TaskTestActivityB"
-            android:launchMode="singleInstance"/>
+        <activity android:name=".tasktest.TaskTestActivityB"/>
         <activity android:name=".tasktest.TaskTestActivityC"/>
     </application>
 

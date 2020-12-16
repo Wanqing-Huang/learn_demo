@@ -3,6 +3,7 @@ package com.example.learn_demo
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learn_demo.aop.AOPActivity
 import com.example.learn_demo.calendarview.CalendarViewActivity
@@ -46,7 +47,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_activity_task_test.setOnClickListener {
-            startActivity(Intent(this, TaskTestActivityA::class.java))
+            startActivityForResult(Intent(this, TaskTestActivityA::class.java), 1000)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Log.d("vian", "MainActivity onActivityResult")
     }
 }
