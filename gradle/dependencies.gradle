@@ -12,15 +12,18 @@ ext.versions += [
         "calendarview": '2.0.1',
         "butterknife" : '10.2.0',
         "aspectjx"    : '2.0.10',
-        "customPlugin"    : '1.0.0',
+        "customPlugin": '1.0.0',
+        "corountines" : "1.3.5"
 ]
 
 ext.deps = [
-        "calendarview": "com.github.prolificinteractive:material-calendarview:${versions.calendarview}",
-        'butterknife' : [
+        "calendarview"             : "com.github.prolificinteractive:material-calendarview:${versions.calendarview}",
+        'butterknife'              : [
                 'butterknife'         : "com.jakewharton:butterknife:${versions.butterknife}",
                 'butterknife_compiler': "com.jakewharton:butterknife-compiler:${versions.butterknife}",
         ],
-        "aspectjx"    : "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:${versions.aspectjx}",
-        "customPlugin"    : "com.example.asm_demo:customPlugin:${versions.customPlugin}",
+        "aspectjx"                 : "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:${versions.aspectjx}",
+        "customPlugin"             : "com.example.asm_demo:customPlugin:${versions.customPlugin}",
+        "kotlin_coroutines"        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.corountines}",
+        "kotlin_coroutines_android": "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.corountines}"
 ]

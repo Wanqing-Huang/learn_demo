@@ -32,6 +32,10 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+
+        dataBinding {
+            enabled = true
+        }
     }
 
 //aspectjx配置
@@ -58,5 +62,7 @@ android {
         implementation deps.butterknife.butterknife
         kapt deps.butterknife.butterknife_compiler
         implementation deps.calendarview
+        implementation deps.kotlin_coroutines
+        implementation deps.kotlin_coroutines_android
     }
 }

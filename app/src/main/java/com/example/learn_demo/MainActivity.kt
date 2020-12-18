@@ -7,6 +7,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.learn_demo.aop.AOPActivity
 import com.example.learn_demo.calendarview.CalendarViewActivity
+import com.example.learn_demo.coroutine.ChannelTestActivity
+import com.example.learn_demo.coroutine.CoroutineTestActivity
 import com.example.learn_demo.tasktest.TaskTestActivityA
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
@@ -48,6 +50,15 @@ class MainActivity : AppCompatActivity() {
 
         btn_activity_task_test.setOnClickListener {
             startActivityForResult(Intent(this, TaskTestActivityA::class.java), 1000)
+        }
+
+
+        btn_activity_channel_test.setOnClickListener {
+            startActivity(Intent(this, ChannelTestActivity::class.java))
+        }
+
+        btn_activity_coroutine_test.setOnClickListener {
+            startActivity(Intent(this, CoroutineTestActivity::class.java))
         }
     }
 

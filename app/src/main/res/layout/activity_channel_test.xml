@@ -9,39 +9,27 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btn_aop_test"
+        android:id="@+id/btn_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="AOP测试" />
+        android:text="Send" />
 
     <Button
-        android:id="@+id/btn_date_picker_test"
+        android:id="@+id/btn_receive"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="日期选择器测试" />
+        android:text="Receive" />
 
     <Button
-        android:id="@+id/btn_android_q_test"
+        android:id="@+id/btn_offer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="AndroidQ测试" />
+        android:text="Offer" />
 
     <Button
-        android:id="@+id/btn_activity_task_test"
+        android:id="@+id/btn_poll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="activity task测试" />
-
-    <Button
-        android:id="@+id/btn_activity_channel_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="channel测试" />
-
-    <Button
-        android:id="@+id/btn_activity_coroutine_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="coroutine测试" />
+        android:text="Poll" />
 
 </LinearLayout>

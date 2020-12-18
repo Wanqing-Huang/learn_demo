@@ -29,6 +29,8 @@
         <activity android:name=".tasktest.TaskTestActivityA"/>
         <activity android:name=".tasktest.TaskTestActivityB"/>
         <activity android:name=".tasktest.TaskTestActivityC"/>
+        <activity android:name=".coroutine.ChannelTestActivity" />
+        <activity android:name=".coroutine.CoroutineTestActivity" />
     </application>
 
 </manifest>
