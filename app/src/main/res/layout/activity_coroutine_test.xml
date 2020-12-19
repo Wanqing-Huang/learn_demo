@@ -14,5 +14,29 @@
         android:layout_height="wrap_content"
         android:text="create coroutine" />
 
+    <Button
+        android:id="@+id/btn_close_coroutine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="close coroutine" />
+
+    <Button
+        android:id="@+id/btn_start_scope"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start scope" />
+
+    <Button
+        android:id="@+id/btn_cancel_scope"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="cancel scope" />
+
+    <Button
+        android:id="@+id/btn_print_job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="print_job" />
+
 
 </LinearLayout>
