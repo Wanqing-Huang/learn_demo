@@ -31,6 +31,7 @@
         <activity android:name=".tasktest.TaskTestActivityC"/>
         <activity android:name=".coroutine.ChannelTestActivity" />
         <activity android:name=".coroutine.CoroutineTestActivity" />
+        <activity android:name=".lock.LockTestActivity" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import com.example.learn_demo.aop.AOPActivity
 import com.example.learn_demo.calendarview.CalendarViewActivity
 import com.example.learn_demo.coroutine.ChannelTestActivity
 import com.example.learn_demo.coroutine.CoroutineTestActivity
+import com.example.learn_demo.lock.LockTestActivity
 import com.example.learn_demo.tasktest.TaskTestActivityA
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_activity_coroutine_test.setOnClickListener {
             startActivity(Intent(this, CoroutineTestActivity::class.java))
+        }
+
+        btn_lock_test.setOnClickListener {
+            startActivity(Intent(this, LockTestActivity::class.java))
         }
     }
 
