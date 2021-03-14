@@ -2,7 +2,6 @@ package com.example.learn_demo.lock
 
 import android.util.Log
 import java.util.concurrent.locks.ReentrantReadWriteLock
-import kotlin.random.Random
 
 /**
  * @author vianhuang
@@ -18,7 +17,7 @@ class ReadWriteLockTest {
         simpleTest()
     }
 
-    fun simpleTest() {
+    private fun simpleTest() {
         Thread(writeRunnable).start()
         Thread(writeRunnable).start()
         Thread(readRunnable).start()
@@ -45,7 +44,7 @@ class ReadWriteLockTest {
 
 
     /**
-     * 可以锁降级
+     * 可以锁降级，可以将写锁降级为读锁，因为线程拥有写锁说明其他线程并不会拥有任何读锁和写锁，所以当前线程可以顺利降级。
      * 线程获取写入锁后可以获取读取锁，然后释放写入锁，这样就从写入锁变成了读取锁，从而实现锁降级的特性
      */
     private fun downgradeLock() {
@@ -62,7 +61,7 @@ class ReadWriteLockTest {
 
 
     /**
-     * 不可锁升级
+     * 不能锁升级，不可以将读锁升级为写锁，因为当前线程拥有读锁，其他线程可能也拥有读锁，所以当前线程不能升级为写锁。
      * 线程获取写入锁后可以获取读取锁，然后释放写入锁，这样就从写入锁变成了读取锁，从而实现锁降级的特性
      */
     private fun upgradeLock() {
