@@ -65,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         btn_lock_test.setOnClickListener {
             startActivity(Intent(this, LockTestActivity::class.java))
         }
+
+        btn_flavor_test.setOnClickListener {
+            startActivity(Intent(this, FlavorTestActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

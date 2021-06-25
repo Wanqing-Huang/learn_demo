@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">learn_demo</string>
+    <string name="test_res_value">@string/testResValue</string>
+    <string name="country_name">china</string>
 </resources>
