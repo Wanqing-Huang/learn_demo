@@ -69,6 +69,10 @@ class MainActivity : AppCompatActivity() {
         btn_flavor_test.setOnClickListener {
             startActivity(Intent(this, FlavorTestActivity::class.java))
         }
+
+        btn_gson_test.setOnClickListener {
+            startActivity(Intent(this, GsonTestActivity::class.java))
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

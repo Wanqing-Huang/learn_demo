@@ -56,4 +56,10 @@
         android:layout_height="wrap_content"
         android:text="flavor测试" />
 
+    <Button
+        android:id="@+id/btn_gson_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="gson测试" />
+
 </LinearLayout>

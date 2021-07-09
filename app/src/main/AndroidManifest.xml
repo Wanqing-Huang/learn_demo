@@ -36,6 +36,7 @@
         <activity android:name=".coroutine.CoroutineTestActivity" />
         <activity android:name=".lock.LockTestActivity" />
         <activity android:name=".FlavorTestActivity" />
+        <activity android:name=".GsonTestActivity" />
     </application>
 
 </manifest>
