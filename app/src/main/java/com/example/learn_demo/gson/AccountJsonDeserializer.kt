@@ -6,6 +6,7 @@ import java.lang.reflect.Type
 /**
  * @author vianhuang
  * @date 2021/7/14 6:17 下午
+ *
  */
 class AccountJsonDeserializer : JsonDeserializer<Account>, JsonSerializer<Account> {
     override fun deserialize(
