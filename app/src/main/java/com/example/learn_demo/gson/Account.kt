@@ -9,6 +9,7 @@ class Account {
     var userName: String? = null
     var telNumber: String = "000000000"
 
+
     override fun toString(): String {
         return "Account(uid=$uid, userName=$userName, telNumber=$telNumber)"
     }
