@@ -110,4 +110,9 @@ dependencies {
     implementation deps.kotlin_coroutines_android
     implementation deps.androidx_activity_ktx
     implementation deps.gson
+
+    //room
+    kapt deps.room.compiler
+    implementation deps.room.runtime
+    implementation deps.room.ktx
 }
