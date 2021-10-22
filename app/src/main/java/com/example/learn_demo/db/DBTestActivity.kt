@@ -84,7 +84,7 @@ class DBTestActivity : AppCompatActivity() {
         }
 
         btn_query_test.setOnClickListener {
-            queryLiveDataTest()
+            testDatabaseView()
         }
 
 
@@ -173,6 +173,21 @@ class DBTestActivity : AppCompatActivity() {
                         txt_result.text = result
                     }
                 }
+            }
+        }
+    }
+
+
+    private fun testDatabaseView(){
+        lifecycleScope.launch(Dispatchers.IO) {
+            val userDetails = DatabaseHelper.db.userPlayListDao().queryAll()
+
+            var result = ""
+            userDetails.forEach { result += (it.toString() + "\n") }
+            Log.d(TAG, "test database view. $result")
+
+            withContext(Dispatchers.Main) {
+                txt_result.text = result
             }
         }
     }
