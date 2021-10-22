@@ -1,2 +1,2 @@
 # learn_demo
-github token=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
+github token=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
