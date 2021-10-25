@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // greendao 一定要处于第二行，不然会失败
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -123,4 +124,7 @@ dependencies {
     kapt deps.room.compiler
     implementation deps.room.runtime
     implementation deps.room.ktx
+
+    //greendao
+    implementation deps.greendao
 }

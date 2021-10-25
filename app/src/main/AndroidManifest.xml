@@ -38,7 +38,8 @@
         <activity android:name=".lock.LockTestActivity" />
         <activity android:name=".FlavorTestActivity" />
         <activity android:name=".GsonTestActivity" />
-        <activity android:name=".db.DBTestActivity" />
+        <activity android:name=".db.room.RoomTestActivity" />
+        <activity android:name=".db.greendao.GreendaoTestActivity" />
     </application>
 
 </manifest>

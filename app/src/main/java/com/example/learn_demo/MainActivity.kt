@@ -9,7 +9,8 @@ import com.example.learn_demo.aop.AOPActivity
 import com.example.learn_demo.calendarview.CalendarViewActivity
 import com.example.learn_demo.coroutine.ChannelTestActivity
 import com.example.learn_demo.coroutine.CoroutineTestActivity
-import com.example.learn_demo.db.DBTestActivity
+import com.example.learn_demo.db.greendao.GreendaoTestActivity
+import com.example.learn_demo.db.room.RoomTestActivity
 import com.example.learn_demo.lock.LockTestActivity
 import com.example.learn_demo.tasktest.TaskTestActivityA
 import kotlinx.android.synthetic.main.activity_main.*
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn_db_test.setOnClickListener {
-            startActivity(Intent(this, DBTestActivity::class.java))
+            startActivity(Intent(this, GreendaoTestActivity::class.java))
         }
     }
 

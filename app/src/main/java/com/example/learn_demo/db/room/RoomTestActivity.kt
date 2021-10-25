@@ -1,11 +1,10 @@
-package com.example.learn_demo.db
+package com.example.learn_demo.db.room
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.learn_demo.R
-import com.example.learn_demo.db.room.DatabaseHelper
 import com.example.learn_demo.db.room.entity.*
 import kotlinx.android.synthetic.main.activity_db_test.*
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +17,7 @@ import kotlin.random.Random
  * @author vianhuang
  * @date 2021/10/14 11:23 上午
  */
-class DBTestActivity : AppCompatActivity() {
+class RoomTestActivity : AppCompatActivity() {
     companion object {
         const val TAG = "DBTestActivity"
     }
@@ -170,7 +169,7 @@ class DBTestActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             val usersLiveData = DatabaseHelper.db.userDao().queryMatchedUsers(50)
             withContext(Dispatchers.Main) {
-                usersLiveData.observe(this@DBTestActivity) { users ->
+                usersLiveData.observe(this@RoomTestActivity) { users ->
                     var result = ""
                     users.forEach { result += (it.toString() + "\n") }
                     Log.d(TAG, "livaData changed. $result")
