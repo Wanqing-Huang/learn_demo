@@ -1,11 +1,10 @@
 package com.example.learn_demo.db.room.db
 
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.learn_demo.AppUtils
+import com.example.learn_demo.db.room.converter.Converters
 import com.example.learn_demo.db.room.dao.*
 import com.example.learn_demo.db.room.entity.*
 
@@ -20,6 +19,7 @@ import com.example.learn_demo.db.room.entity.*
     views = [UserPlayList::class],
     version = 2
 )
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
@@ -27,7 +27,8 @@ abstract class AppDatabase : RoomDatabase() {
             return Room.databaseBuilder(
                 AppUtils.context.applicationContext,
                 AppDatabase::class.java, "app_database"
-            ).addMigrations(MIGRATIONS.MIGRATION_1_2)
+            )
+                .addMigrations(MIGRATIONS.MIGRATION_1_2, MIGRATIONS.MIGRATION_2_3)
                 .build()
         }
     }
@@ -44,6 +45,14 @@ abstract class AppDatabase : RoomDatabase() {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("CREATE TABLE IF NOT EXISTS `Song` (`songId` INTEGER NOT NULL, `songName` TEXT NOT NULL, `artist` TEXT NOT NULL, PRIMARY KEY(`songId`))")
+            }
+        }
+
+        val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL(
+                    "ALTER TABLE `User` ADD COLUMN ${User::birthday.name} INTEGER DEFAULT 0"
+                )
             }
         }
     }

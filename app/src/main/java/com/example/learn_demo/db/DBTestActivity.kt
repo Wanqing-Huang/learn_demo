@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_db_test.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 import kotlin.random.Random
 
 /**
@@ -23,9 +24,14 @@ class DBTestActivity : AppCompatActivity() {
     }
 
     private val users = listOf(
-        User(1, address = Address("street1", "state1", "city1")),
+        User(1, address = Address("street1", "state1", "city1"), birthday = Date(2021, 10, 12)),
         User(2, age = 14, address = Address("street2", "state2", "city2")),
-        User(3, age = 15, address = Address("street3", "state3", "city3")),
+        User(
+            3,
+            age = 15,
+            address = Address("street3", "state3", "city3"),
+            birthday = Date(2021, 10, 14)
+        ),
         User(4, age = 16, name = "name4"),
         User(5, age = 17, address = Address("street5", "state5", "city5")),
         User(6, age = 18, name = "name6")

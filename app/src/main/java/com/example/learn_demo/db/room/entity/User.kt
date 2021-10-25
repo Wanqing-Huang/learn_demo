@@ -2,6 +2,7 @@ package com.example.learn_demo.db.room.entity
 
 import android.graphics.Bitmap
 import androidx.room.*
+import java.util.*
 
 /**
  * @author vianhuang
@@ -30,7 +31,10 @@ data class User(
 
     //Embedded用于标记嵌套对象，这个对象的所有字段会被加入User表中
     @Embedded
-    var address: Address? = null
+    var address: Address? = null,
+
+    @ColumnInfo(name = "birthday")
+    val birthday: Date? = null
 ) {
     //不需要保留进db的字段
     @Ignore

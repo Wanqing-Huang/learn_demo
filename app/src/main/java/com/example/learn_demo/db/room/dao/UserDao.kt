@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.learn_demo.db.room.entity.User
 import com.example.learn_demo.db.room.entity.UserWithPlaylists
+import java.util.*
 
 /**
  * @author vianhuang
@@ -51,4 +52,8 @@ interface UserDao {
     @Transaction
     @Query("SELECT * FROM User")
     fun queryUsersAndPlaylists(): List<UserWithPlaylists>
+
+
+    @Query("SELECT * FROM user WHERE birthday BETWEEN :from AND :to")
+    fun findUsersBornBetweenDates(from: Date, to: Date): List<User>
 }
