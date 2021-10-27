@@ -96,7 +96,13 @@ class GreendaoTestActivity : AppCompatActivity() {
             lifecycleScope.launch(Dispatchers.IO) {
                 val uid = Random.nextInt(0, 6)
                 val oldUser = users[uid]
-                val newUser = User(oldUser.uid, oldUser.name, Random.nextInt(1, 100)).apply {
+                val newUser = User(
+                    oldUser.uid,
+                    oldUser.name,
+                    Random.nextInt(1, 100),
+                    oldUser.address,
+                    oldUser.birthday
+                ).apply {
                     address = oldUser.address
                     name = oldUser.name
                 }

@@ -100,6 +100,15 @@ android {
         freeCompilerArgs = ["-Xallow-result-return-type", "-XXLanguage:+InlineClasses"]
         // 允许自行返回Result<T>
     }
+
+    greendao {
+        //数据库版本号
+        schemaVersion 2
+        //设置生成的DaoMaster, DaoSession, Dao的包名
+        daoPackage 'com.example.learn_demo.db.greendao'
+        //设置生成的DaoMaster, DaoSession, Dao的目录
+//        targetGenDir 'src/main/java'
+    }
 }
 
 dependencies {
