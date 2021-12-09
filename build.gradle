@@ -45,6 +45,7 @@ subprojects { sub ->
     sub.beforeEvaluate { proj ->
         println "sub.beforeEvaluate回调..." + proj
     }
+
     //在 Project 配置结束后调用
     sub.afterEvaluate { proj ->
         println "sub.afterEvaluate回调..." + proj
