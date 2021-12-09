@@ -46,7 +46,20 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix '.debug'
+            applicationVariants.all { variant ->
+                def flavor = variant.getFlavorName()
+                def mergedFlavour = variant.getMergedFlavor()
+                def applicationId = mergedFlavor.applicationId
+
+                def suffix = ".debug"
+                if (flavor == "malaysia") {
+                    suffix = ".internal"
+                }
+
+                mergedFlavour.setApplicationId(applicationId + suffix)
+                println("change application id from $applicationId to ${mergedFlavor.applicationId}.")
+            }
+
         }
         release {
             minifyEnabled false
@@ -60,6 +73,7 @@ android {
 
     productFlavors {
         indonesia {
+            applicationId "com.example.learn_demo.id"
             buildConfigField 'String', 'COUNTRY', "\"id\""
             manifestPlaceholders = ["APP_KEY": "123456789"]
             resValue "string", "testResValue", "\"indonesia\""
@@ -67,6 +81,7 @@ android {
         }
 
         malaysia {
+            applicationId "com.example.learn_demo.my"
             buildConfigField 'String', 'COUNTRY', "\"my\""
             manifestPlaceholders = ["APP_KEY": "123456789"]
             resValue "string", "testResValue", "\"malaysia\""
@@ -109,6 +124,15 @@ android {
         //设置生成的DaoMaster, DaoSession, Dao的目录
 //        targetGenDir 'src/main/java'
     }
+}
+
+//无法收到回调，因为当前模块还没有配置好，所以监听器不生效
+this.beforeEvaluate {
+    println "this.beforeEvaluate回调..." + this
+}
+
+this.afterEvaluate {
+    println "this.afterEvaluate..." + this
 }
 
 dependencies {

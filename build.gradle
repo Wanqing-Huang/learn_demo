@@ -39,3 +39,27 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+subprojects { sub ->
+    //在 Project 进行配置前调用
+    sub.beforeEvaluate { proj ->
+        println "sub.beforeEvaluate回调..." + proj
+    }
+    //在 Project 配置结束后调用
+    sub.afterEvaluate { proj ->
+        println "sub.afterEvaluate回调..." + proj
+    }
+
+    //在project进行配置前调用，child project必须在root project中设置才会生效，root project必须在settings.gradle中设置才会生效
+    //早于project.beforeEvaluate回调
+    sub.gradle.beforeProject { proj ->
+        println "sub.gradle.beforeProject回调..." + proj
+    }
+
+    //在project配置后调用
+    //早于project.afterEvaluate回调
+    //root project也会回调
+    sub.gradle.afterProject { proj ->
+        println "sub.gradle.afterProject回调..." + proj
+    }
+}
