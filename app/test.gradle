@@ -1,0 +1,136 @@
+///**
+// * 参考文档：
+// *     https://www.heqiangfly.com/2016/03/13/development-tool-gradle-task/
+// */
+//
+//
+//
+//
+////******************** task的基本使用 ***********************//
+//tasks.create("testTask2") {
+//    group = 'Welcome'
+//    description = 'Produces a greeting'
+//
+//    //将它设置为假，那它的任何动作都不会被执行。
+////    enabled(false)
+//
+//    //指定testTask2执行之前必须先执行testTask1
+////    dependsOn(testTask1)
+//
+//    //指定testTask2必须在testTask1之后执行
+////    mustRunAfter(testTask1)
+//
+//    //指定testTask1执行完成后必须立刻执行testTask1
+////    finalizedBy(testTask1)
+//
+//    //任务只有在条件判断为真时才会执行
+//    //测试命令： ./gradlew testTask2 -Pskip
+//
+//    onlyIf { !project.hasProperty('skip') }
+//    doFirst { //action之前调用
+//        println "testTask2 ===> doFirst"
+//    }
+//    doLast {
+//        println "testTask2 ===> doLast"
+//    }
+//}
+//
+////******************** 已有task的继承使用 ***********************//
+///**
+// * Gradle 本身还提供了一些已有的 task 供我们使用，比如 Copy、Delete、Sync 等。
+// * 因此我们定义 task 的时候是可以继承已有的 task，比如我们可以继承自系统的 Copy Task 来完成文件的拷贝操作。
+// */
+//task testCopy (type: Copy){
+//    group = 'Welcome'
+//    from 'src/main/AndroidManifest.xml'  // 调用 from 方法
+//    into 'build/test'  // 调用 into 方法
+//    rename { "AndroidManifestCopy.xml" } // 调用 rename 方法
+//}
+//
+////******************** 自定义task的使用 ***********************//
+//class TestTask extends DefaultTask {
+//    String source
+//
+//    //@TaskAction表示该Task要执行的动作，即在调用该Task时，要执行的方法。
+//    @TaskAction
+//    void testAction() {
+//        println "$source ===> doAction"
+//    }
+//}
+//
+//task testTask1(type: TestTask) {
+//    group = 'Welcome'
+//    source "testTask1" //给属性设置值
+//    doFirst { //action之前调用
+//        println "testTask1 ===> doFirst"
+//    }
+//    doLast { //action之后调用
+//        println "testTask1 ===> doLast"
+//    }
+//}
+//
+////******************* project回调 *********************//
+////无法收到回调，因为当前模块还没有配置好，所以监听器不生效
+//this.beforeEvaluate {
+//    println "[vian][test] beforeEvaluate回调..."
+//}
+//
+//this.afterEvaluate {
+//    println "[vian][test] afterEvaluate..."
+//
+//    //project.tasks====>project中定义的所有的task，并不一定会被调用到
+//    //gradle.getTaskGraph()======>
+//
+//    //preTask可以去找，也可以直接用testTask1
+//    def preTask = project.tasks.find { task ->
+//        task.name.contains('testTask1')
+//    }
+//    if (!preTask) {
+//        println("[vian][test]testTask1 not found.")
+//        return
+//    }
+//
+//    def targetTasks = project.tasks.findAll { task ->
+//        return task.name == "assembleIndonesiaDebug"
+//    }
+//    if (targetTasks.isEmpty()) {
+//        println("[vian][test]assembleIndonesiaDebug not found.")
+//        return
+//    }
+//
+//    targetTasks.forEach { task ->
+//        task.dependsOn(preTask)
+//        println("[vian][test]set ${preTask.name} before ${task.name}.")
+//    }
+//
+//    project.android.applicationVariants.all { variant ->
+//        def flavor = variant.getFlavorName()
+//        def applicationId = variant.applicationId
+//        def versionCode = variant.versionCode
+//        def versionName = variant.versionName
+//        def isDebuggable = variant.buildType.isDebuggable()
+//        def signingConfig = variant.signingConfig
+//        println("[vian][test]get variant item. flavor=$flavor, applicationId=$applicationId, versionCode=$versionCode, versionName=$versionName, isDebuggable=$isDebuggable, signingConfig=$signingConfig.")
+//
+//        // do something before compile
+//        variant.javaCompile.doFirst {
+//            println("[vian][test]do different config before compile.")
+//        }
+//    }
+//}
+//
+//
+//TaskExecutionGraph taskGraph = gradle.getTaskGraph()
+//taskGraph.whenReady {
+//    println "whenReady Task依赖关系构建完成，size=${it.allTasks.size()}"
+//
+//    it.allTasks.forEach { task ->
+//        println "[vian][test] task graph item = >${task.name}"
+//    }
+//}
+//taskGraph.beforeTask {
+//    //start
+//}
+//taskGraph.afterTask {
+//    //end
+//}

@@ -42,7 +42,7 @@ class CountDownLatchTest {
             lock.await()
             Log.d("vian", "main thread start executing...")
         } catch (e: InterruptedException) {
-            Log.e("vian", e.message)
+            Log.e("vian", e.message ?: "")
         }
     }
 
@@ -71,7 +71,7 @@ class CountDownLatchTest {
             endLock.await()
             Log.d("vian", "end running")
         } catch (e: InterruptedException) {
-            Log.e("vian", e.message)
+            Log.e("vian", e.message ?: "")
         }
     }
 
