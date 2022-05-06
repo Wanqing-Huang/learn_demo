@@ -160,4 +160,5 @@ dependencies {
 
     //greendao
     implementation deps.greendao
+    implementation deps.splashscreen
 }

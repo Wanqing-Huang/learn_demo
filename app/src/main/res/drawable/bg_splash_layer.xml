@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="#FFFFFF" />
+    </item>
+
+    <!-- android5.1如果直接在item中使用drawable属性，icon将会特别大，所以android5.1依旧使用bitmap标签  -->
+    <item android:bottom="140dp">
+        <bitmap
+            android:tileMode="disabled"
+            android:gravity="center"
+            android:src="@drawable/ic_app_driver_logo" />
+    </item>
+
+</layer-list>

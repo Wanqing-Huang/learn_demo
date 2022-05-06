@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "b02112cff1296279e61067723638ab1e",
+    "identityHash": "cff85151af6c086abf212e1bdc53954a",
     "entities": [
       {
         "tableName": "User",
@@ -148,7 +148,17 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_PlaylistSongCrossRef_songId",
+            "unique": false,
+            "columnNames": [
+              "songId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_PlaylistSongCrossRef_songId` ON `${TABLE_NAME}` (`songId`)"
+          }
+        ],
         "foreignKeys": []
       }
     ],
@@ -160,7 +170,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b02112cff1296279e61067723638ab1e')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cff85151af6c086abf212e1bdc53954a')"
     ]
   }
 }

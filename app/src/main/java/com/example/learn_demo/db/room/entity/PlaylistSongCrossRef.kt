@@ -1,5 +1,6 @@
 package com.example.learn_demo.db.room.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 
 /**
@@ -9,6 +10,7 @@ import androidx.room.Entity
 @Entity(primaryKeys = ["playlistId", "songId"])
 data class PlaylistSongCrossRef(
     val playlistId: Long,
+    @ColumnInfo(index = true)
     val songId: Long
 )
 

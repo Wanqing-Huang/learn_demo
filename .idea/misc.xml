@@ -7,6 +7,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_splash_layer.xml" value="0.116" />
+        <entry key="app/src/main/res/drawable/shape_blue_rect_top_radius_10dp.xml" value="0.1005" />
         <entry key="app/src/main/res/layout/activity_db_test.xml" value="0.3" />
         <entry key="app/src/main/res/layout/activity_flavor.xml" value="0.2388888888888889" />
         <entry key="app/src/main/res/layout/activity_lock.xml" value="0.2388888888888889" />

@@ -2,7 +2,7 @@
 buildscript {
     apply from: "${project.rootProject.rootDir}/gradle/dependencies.gradle"
 
-    ext.kotlin_version = "1.4.0"
+    ext.kotlin_version = "1.6.0"
 
     repositories {
         maven { url rootProject.file("repo-local") }

@@ -16,24 +16,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <meta-data android:name="APP_KEY" android:value="${APP_KEY}" />
+        <meta-data
+            android:name="APP_KEY"
+            android:value="${APP_KEY}" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
+            android:exported="true"
             android:launchMode="singleTask"
-            android:exported="true">
+            android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask" />
+
         <activity android:name=".aop.AOPActivity" />
         <activity android:name=".calendarview.CalendarViewActivity" />
 
-        <activity android:name=".tasktest.TaskTestActivityA"/>
-        <activity android:name=".tasktest.TaskTestActivityB"/>
-        <activity android:name=".tasktest.TaskTestActivityC"/>
+        <activity android:name=".tasktest.TaskTestActivityA" />
+        <activity android:name=".tasktest.TaskTestActivityB" />
+        <activity android:name=".tasktest.TaskTestActivityC" />
         <activity android:name=".coroutine.ChannelTestActivity" />
         <activity android:name=".coroutine.CoroutineTestActivity" />
         <activity android:name=".lock.LockTestActivity" />
