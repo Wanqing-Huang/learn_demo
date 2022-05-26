@@ -161,4 +161,6 @@ dependencies {
     //greendao
     implementation deps.greendao
     implementation deps.splashscreen
+
+    implementation deps.workmanager
 }

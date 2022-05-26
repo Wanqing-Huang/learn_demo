@@ -26,10 +26,10 @@ class SplashActivity : AppCompatActivity() {
 
         //控制splashScreen显示隐藏
         splashScreen.setKeepOnScreenCondition { true }
-//        lifecycleScope.launch(Dispatchers.Main) {
-//            delay(2000)
-//            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-//        }
+        lifecycleScope.launch(Dispatchers.Main) {
+            delay(500)
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+        }
 
         //定义splashScreen退出动画
 //        splashScreen.setOnExitAnimationListener { splashScreenView ->
@@ -50,8 +50,8 @@ class SplashActivity : AppCompatActivity() {
 //            slideUp.start()
 //        }
 
-        app_version.setOnClickListener {
-            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
-        }
+//        app_version.setOnClickListener {
+//            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+//        }
     }
 }

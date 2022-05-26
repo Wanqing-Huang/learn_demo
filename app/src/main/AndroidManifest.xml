@@ -50,6 +50,7 @@
         <activity android:name=".GsonTestActivity" />
         <activity android:name=".db.room.RoomTestActivity" />
         <activity android:name=".db.greendao.GreendaoTestActivity" />
+        <activity android:name=".workmanager.WorkManagerTestActivity" />
     </application>
 
 </manifest>

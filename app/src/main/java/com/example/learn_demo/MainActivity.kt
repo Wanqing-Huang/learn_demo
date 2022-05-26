@@ -10,9 +10,9 @@ import com.example.learn_demo.calendarview.CalendarViewActivity
 import com.example.learn_demo.coroutine.ChannelTestActivity
 import com.example.learn_demo.coroutine.CoroutineTestActivity
 import com.example.learn_demo.db.greendao.GreendaoTestActivity
-import com.example.learn_demo.db.room.RoomTestActivity
 import com.example.learn_demo.lock.LockTestActivity
 import com.example.learn_demo.tasktest.TaskTestActivityA
+import com.example.learn_demo.workmanager.WorkManagerTestActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.FileOutputStream
@@ -78,6 +78,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_db_test.setOnClickListener {
             startActivity(Intent(this, GreendaoTestActivity::class.java))
+        }
+
+        btn_workmanager_test.setOnClickListener {
+            startActivity(Intent(this, WorkManagerTestActivity::class.java))
         }
     }
 
