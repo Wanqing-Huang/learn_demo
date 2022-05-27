@@ -3,6 +3,7 @@
     package="com.example.learn_demo">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--获取Activity任务栈 权限-->
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -51,6 +52,11 @@
         <activity android:name=".db.room.RoomTestActivity" />
         <activity android:name=".db.greendao.GreendaoTestActivity" />
         <activity android:name=".workmanager.WorkManagerTestActivity" />
+        <activity android:name=".alarmmanager.AlarmManagerTestActivity" />
+
+        <receiver
+            android:name=".alarmmanager.AlarmReceiver"
+            android:exported="true" />
     </application>
 
 </manifest>

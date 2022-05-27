@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.example.learn_demo.alarmmanager.AlarmManagerTestActivity
 import com.example.learn_demo.aop.AOPActivity
 import com.example.learn_demo.calendarview.CalendarViewActivity
 import com.example.learn_demo.coroutine.ChannelTestActivity
@@ -82,6 +83,10 @@ class MainActivity : AppCompatActivity() {
 
         btn_workmanager_test.setOnClickListener {
             startActivity(Intent(this, WorkManagerTestActivity::class.java))
+        }
+
+        btn_alarmmanager_test.setOnClickListener {
+            startActivity(Intent(this, AlarmManagerTestActivity::class.java))
         }
     }
 
