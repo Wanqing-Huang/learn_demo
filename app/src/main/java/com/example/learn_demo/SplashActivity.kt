@@ -29,6 +29,7 @@ class SplashActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.Main) {
             delay(500)
             startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
         }
 
         //定义splashScreen退出动画
